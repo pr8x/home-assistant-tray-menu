@@ -52,9 +52,23 @@ export interface SelectAttributes {
   options: string[]
 }
 
+export interface ThermostatAttributes {
+  hvac_mode?: string
+  hvac_modes?: string[]
+  hvac_action?: string
+  current_temperature?: number
+  temperature?: number
+  target_temperature_low?: number
+  target_temperature_high?: number
+  unit_of_measurement?: string
+  min_temp?: number
+  max_temp?: number
+  target_temp_step?: number
+}
+
 export type SwitchAttributes = Record<string, never>;
 
-export type CombinedAttributes = LightAttributes | SensorAttributes | NumberAttributes | SelectAttributes | SwitchAttributes | AutomationAttributes;
+export type CombinedAttributes = LightAttributes | SensorAttributes | NumberAttributes | SelectAttributes | SwitchAttributes | AutomationAttributes | ThermostatAttributes;
 
 export default interface IState<IAttributes extends CombinedAttributes = CombinedAttributes> {
   entity_id: string

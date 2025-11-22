@@ -1,5 +1,5 @@
 import IState, {
-  LightAttributes, SelectAttributes, SensorAttributes, SwitchAttributes,
+  LightAttributes, SelectAttributes, SensorAttributes, SwitchAttributes, ThermostatAttributes,
 } from '../types/state';
 import { IEntityConfig } from '../store';
 
@@ -40,5 +40,9 @@ export default class EntityUtils {
 
   public static isSelectType(state: IState): state is IState<SelectAttributes> {
     return state.entity_id.startsWith('select.');
+  }
+
+  public static isThermostatType(state: IState): state is IState<ThermostatAttributes> {
+    return state.entity_id.startsWith('climate.');
   }
 }

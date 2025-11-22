@@ -149,6 +149,36 @@ const mockStateArray: Array<Omit<IState, 'last_changed' | 'last_updated' | 'cont
       icon: 'mdi:power-plug-off',
       friendly_name: 'Pixel 7 Is Charging',
     },
+  }, {
+    entity_id: 'climate.living_room',
+    state: 'heat',
+    attributes: {
+      hvac_mode: 'heat',
+      hvac_modes: ['off', 'heat', 'cool', 'auto'],
+      current_temperature: 22.5,
+      temperature: 24.0,
+      min_temp: 15,
+      max_temp: 30,
+      target_temp_step: 0.5,
+      unit_of_measurement: '°C',
+      icon: 'mdi:thermostat',
+      friendly_name: 'Living Room Thermostat',
+    },
+  }, {
+    entity_id: 'climate.bedroom_unavailable',
+    state: 'unavailable',
+    attributes: {
+      hvac_mode: 'off',
+      hvac_modes: ['off', 'heat', 'cool', 'auto'],
+      current_temperature: 0,
+      temperature: 0,
+      min_temp: 15,
+      max_temp: 30,
+      target_temp_step: 0.5,
+      unit_of_measurement: '°C',
+      icon: 'mdi:thermostat',
+      friendly_name: 'Bedroom Thermostat (Unavailable)',
+    },
   },
 ];
 
@@ -185,6 +215,12 @@ const mockEntities: Partial<IEntityConfig>[] = [{
   entity_id: 'light.only_toggle',
 }, {
   entity_id: 'binary_sensor.pixel_7_is_charging',
+}, {
+  entity_id: 'climate.living_room',
+  icon: 'thermostat',
+}, {
+  entity_id: 'climate.bedroom_unavailable',
+  icon: 'thermostat',
 }];
 
 export const mockConfigEntities = mockEntities.map((entity) => ({

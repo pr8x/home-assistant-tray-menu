@@ -30,7 +30,8 @@ export default function Entities() {
      || e.entity_id.startsWith('sensor.')
       || e.entity_id.startsWith('select.')
        || e.entity_id.startsWith('light.')
-        || e.entity_id.startsWith('number.')),
+        || e.entity_id.startsWith('number.')
+         || e.entity_id.startsWith('climate.')),
     retry: false,
   });
 

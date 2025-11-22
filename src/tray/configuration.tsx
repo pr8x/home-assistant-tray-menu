@@ -7,6 +7,7 @@ import SwitchElement from './elements/switch-element';
 import LightElement from './elements/light-element';
 import SensorElement from './elements/sensor-element';
 import SelectElement from './elements/select-element';
+import ThermostatElement from './elements/thermostat-element';
 import { IEntityConfig } from '../store';
 
 interface ConfigurationProps {
@@ -111,6 +112,17 @@ export default function Configuration(props: ConfigurationProps) {
           if (EntityUtils.isSelectType(state)) {
             return (
               <SelectElement
+                key={entity.entity_id}
+                state={state}
+                entity={entity}
+                refetch={refetch}
+              />
+            );
+          }
+
+          if (EntityUtils.isThermostatType(state)) {
+            return (
+              <ThermostatElement
                 key={entity.entity_id}
                 state={state}
                 entity={entity}
